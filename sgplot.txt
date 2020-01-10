@@ -1,0 +1,27 @@
+-sgplot
+
+proc sgplot data=ym;
+series x=var2 y=count / group=var3;
+xaxis type=discrete;
+run;
+
+proc sgplot data=ym noborder;
+    vbar var2 / response=count 
+    group=var3 groupdisplay=cluster dataskin=pressed name='a' datalabel;
+    xaxis type=discrete display=(nolabel);
+    keylegend 'a';
+run;
+
+proc sgplot data=ym2 noborder;
+    vbar duration / response=count 
+    group=var2 groupdisplay=cluster dataskin=pressed name='a' datalabel;
+    xaxis type=discrete display=(nolabel);
+    keylegend 'a';
+run;
+
+proc sgplot data=bar noborder;
+    vbar var1 / response=count 
+    group=var2 groupdisplay=cluster dataskin=pressed name='a' datalabel;
+    xaxis type=discrete display=(nolabel);
+    keylegend 'a';
+run;
